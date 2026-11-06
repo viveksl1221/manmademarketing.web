@@ -6,11 +6,16 @@ import { clients } from "@/data/clients";
 
 const ROWS = 3;
 const perRow = Math.ceil(clients.length / ROWS);
-const rows = Array.from({ length: ROWS }, (_, r) => clients.slice(r * perRow, (r + 1) * perRow));
+const rows = Array.from({ length: ROWS }, (_, r) =>
+  clients.slice(r * perRow, (r + 1) * perRow),
+);
 
 export default function ClientsMarquee() {
   return (
-    <section className="theme-light overflow-hidden py-16 sm:py-24" aria-label="Clients">
+    <section
+      className="theme-light overflow-hidden py-16 sm:py-24"
+      aria-label="Clients"
+    >
       <Container>
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading label="Clients" title={"Brands that\ntrust us."} />

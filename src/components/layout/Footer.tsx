@@ -1,3 +1,4 @@
+import Stars from "@/components/motion/Stars";
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "@/data/nav";
@@ -9,7 +10,8 @@ const YEAR = 2026;
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="relative isolate overflow-hidden bg-black text-white">
+      <Stars />
       <Container>
         <Reveal className="grid grid-cols-1 gap-12 py-16 sm:py-20 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -27,7 +29,9 @@ export default function Footer() {
                 sizes="160px"
               />
             </Link>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">{brand.about}</p>
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
+              {brand.about}
+            </p>
           </div>
 
           <div className="md:col-span-3">
@@ -106,7 +110,10 @@ export default function Footer() {
         <Container className="flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 sm:flex-row">
           <p>© {YEAR} Man Made Marketing. All rights reserved.</p>
           <p className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-red" aria-hidden="true" />
+            <span
+              className="h-1.5 w-1.5 rounded-full bg-red"
+              aria-hidden="true"
+            />
             Marketing Built with Intent.
           </p>
         </Container>

@@ -1,3 +1,5 @@
+import ShinyText from "@/components/motion/ShinyText";
+import Stars from "@/components/motion/Stars";
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -28,19 +30,28 @@ export default function ServicesPage() {
         <section
           key={service.slug}
           id={service.slug}
-          className={`scroll-mt-24 py-16 sm:py-20 ${i % 2 === 0 ? "theme-light" : "theme-dark"}`}
+          className={`scroll-mt-24 py-16 sm:py-20 ${i % 2 === 0 ? "theme-light" : "theme-dark relative isolate overflow-hidden"}`}
         >
+          {i % 2 !== 0 && <Stars />}
           <Container className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
             <Reveal className="lg:col-span-4">
               <span className="text-label text-red">{service.number}</span>
-              <h2 className="text-h2 mt-4 text-white">{service.title}</h2>
+              <h2 className="text-h2 mt-4 text-white">
+                <ShinyText>{service.title}</ShinyText>
+              </h2>
             </Reveal>
             <Reveal delay={0.1} className="lg:col-span-8">
               <p className="text-body-lg text-muted">{service.detail}</p>
               <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                 {service.deliverables.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm font-medium text-white">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red" aria-hidden="true" />
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 text-sm font-medium text-white"
+                  >
+                    <span
+                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-red"
+                      aria-hidden="true"
+                    />
                     {item}
                   </li>
                 ))}
@@ -54,11 +65,18 @@ export default function ServicesPage() {
         <Container className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <Reveal>
             <h2 className="text-h2 max-w-xl text-white">
-              Not sure which service fits? Let&rsquo;s talk it through.
+              <ShinyText>
+                Not sure which service fits? Let&rsquo;s talk it through.
+              </ShinyText>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <Button href="/contact" variant="primary" className="shrink-0" magnetic>
+            <Button
+              href="/contact"
+              variant="primary"
+              className="shrink-0"
+              magnetic
+            >
               Start a Project
             </Button>
           </Reveal>

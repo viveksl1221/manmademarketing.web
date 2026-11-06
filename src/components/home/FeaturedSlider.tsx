@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Stars from "@/components/motion/Stars";
 import ScrollSlide from "@/components/motion/ScrollSlide";
 import { featuredCases, FeaturedCase } from "@/data/featured";
 
@@ -38,7 +39,11 @@ function CaseCard({ item, index }: { item: FeaturedCase; index: number }) {
               <span className="text-label opacity-70">{item.category}</span>
               <div>
                 <span className="text-h1 block break-words">{item.client}</span>
-                {item.note && <span className="mt-4 block text-sm opacity-75">{item.note}</span>}
+                {item.note && (
+                  <span className="mt-4 block text-sm opacity-75">
+                    {item.note}
+                  </span>
+                )}
               </div>
             </div>
           )}
@@ -72,18 +77,28 @@ function CaseCard({ item, index }: { item: FeaturedCase; index: number }) {
 
 export default function FeaturedSlider() {
   return (
-    <section id="selected-work" aria-label="Featured work" className="theme-dark overflow-hidden py-20 sm:py-28">
-      <Container>
-        <SectionHeading label="Case Studies" title={"Work that\nmoves brands."} />
-      </Container>
+    <section
+      id="selected-work"
+      aria-label="Featured work"
+      className="theme-dark relative isolate overflow-hidden py-20 sm:py-28"
+    >
+      <Stars />
+      <div className="relative z-10">
+        <Container>
+          <SectionHeading
+            label="Case Studies"
+            title={"Work that\nmoves brands."}
+          />
+        </Container>
 
-      <ScrollSlide fit className="mt-12 sm:mt-16">
-        <ul className="flex items-start gap-4 px-6 sm:gap-6 sm:px-10 lg:px-16 xl:px-24">
-          {featuredCases.map((item, i) => (
-            <CaseCard key={item.client} item={item} index={i} />
-          ))}
-        </ul>
-      </ScrollSlide>
+        <ScrollSlide fit className="mt-12 sm:mt-16">
+          <ul className="flex items-start gap-4 px-6 sm:gap-6 sm:px-10 lg:px-16 xl:px-24">
+            {featuredCases.map((item, i) => (
+              <CaseCard key={item.client} item={item} index={i} />
+            ))}
+          </ul>
+        </ScrollSlide>
+      </div>
     </section>
   );
 }

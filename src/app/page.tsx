@@ -5,6 +5,8 @@ import RegionsMarquee from "@/components/home/RegionsMarquee";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
 import Manifesto from "@/components/home/Manifesto";
+import Testimonials from "@/components/home/Testimonials";
+import Faq from "@/components/home/Faq";
 import ContactCTA from "@/components/home/ContactCTA";
 import StackCard from "@/components/motion/StackCard";
 
@@ -16,7 +18,9 @@ const sections = [
   RegionsMarquee,
   Services,
   Process,
+  Testimonials,
   Manifesto,
+  Faq,
   ContactCTA,
 ];
 

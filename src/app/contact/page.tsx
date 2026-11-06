@@ -7,7 +7,8 @@ import { contact } from "@/data/brand";
 
 export const metadata: Metadata = {
   title: "Contact | Man Made Marketing",
-  description: "Start a project with Man Made Marketing — a strategy-driven marketing agency.",
+  description:
+    "Start a project with Man Made Marketing — a strategy-driven marketing agency.",
 };
 
 export default function ContactPage() {

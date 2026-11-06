@@ -1,3 +1,5 @@
+import ShinyText from "@/components/motion/ShinyText";
+import Stars from "@/components/motion/Stars";
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -8,7 +10,8 @@ import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Work | Man Made Marketing",
-  description: "Content and campaign work for Man Made Marketing clients across food, wellness, and professional services.",
+  description:
+    "Content and campaign work for Man Made Marketing clients across food, wellness, and professional services.",
 };
 
 export default function WorkPage() {
@@ -24,7 +27,8 @@ export default function WorkPage() {
         </Container>
       </section>
 
-      <section className="theme-dark py-16 sm:py-20">
+      <section className="theme-dark relative isolate overflow-hidden py-16 sm:py-20">
+        <Stars />
         <Container>
           <WorkViewToggle projects={projects} />
         </Container>
@@ -33,10 +37,19 @@ export default function WorkPage() {
       <section className="theme-light py-20 sm:py-24">
         <Container className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <Reveal>
-            <h2 className="text-h2 max-w-xl text-white">Want to see the brand&rsquo;s name here next?</h2>
+            <h2 className="text-h2 max-w-xl text-white">
+              <ShinyText>
+                Want to see the brand&rsquo;s name here next?
+              </ShinyText>
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <Button href="/contact" variant="primary" className="shrink-0" magnetic>
+            <Button
+              href="/contact"
+              variant="primary"
+              className="shrink-0"
+              magnetic
+            >
               Start a Project
             </Button>
           </Reveal>

@@ -2,12 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, animate, motion } from "framer-motion";
 import useReducedMotionSafe from "@/components/motion/useReducedMotionSafe";
 
 const frames = [
-  { src: "/logo/mark.png", alt: "Man Made Marketing — icon mark", className: "h-20 w-12" },
-  { src: "/logo/wordmark-on-dark.svg", alt: "Man Made Marketing", className: "h-16 w-64" },
+  {
+    src: "/logo/mark.png",
+    alt: "Man Made Marketing — icon mark",
+    className: "h-20 w-12",
+  },
+  {
+    src: "/logo/wordmark-on-dark.svg",
+    alt: "Man Made Marketing",
+    className: "h-16 w-64",
+  },
 ];
 
 const HOLD_MS = [1000, 3000];
@@ -21,13 +29,29 @@ export default function Preloader() {
 
   const [frameIndex, setFrameIndex] = useState(0);
   const [done, setDone] = useState(false);
+  const [percent, setPercent] = useState(0);
+
+  useEffect(() => {
+    const controls = animate(0, 100, {
+      duration: (TOTAL_MS * scale) / 1000,
+      ease: [0.45, 0, 0.25, 1],
+      onUpdate: (v) => setPercent(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [scale]);
 
   useEffect(() => {
     if (frameIndex < frames.length - 1) {
-      const id = window.setTimeout(() => setFrameIndex((i) => i + 1), HOLD_MS[frameIndex] * scale);
+      const id = window.setTimeout(
+        () => setFrameIndex((i) => i + 1),
+        HOLD_MS[frameIndex] * scale,
+      );
       return () => window.clearTimeout(id);
     }
-    const id = window.setTimeout(() => setDone(true), HOLD_MS[frameIndex] * scale);
+    const id = window.setTimeout(
+      () => setDone(true),
+      HOLD_MS[frameIndex] * scale,
+    );
     return () => window.clearTimeout(id);
   }, [frameIndex, scale]);
 
@@ -49,7 +73,10 @@ export default function Preloader() {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: (EXIT_MS * scale) / 1000, ease: [0.65, 0, 0.35, 1] }}
+          transition={{
+            duration: (EXIT_MS * scale) / 1000,
+            ease: [0.65, 0, 0.35, 1],
+          }}
           className="preloader-root fixed inset-0 z-[300] flex flex-col items-center justify-center gap-10 bg-ink"
         >
           <AnimatePresence mode="wait">
@@ -58,7 +85,10 @@ export default function Preloader() {
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.04 }}
-              transition={{ duration: (CROSSFADE_MS * scale) / 1000, ease: [0.65, 0, 0.35, 1] }}
+              transition={{
+                duration: (CROSSFADE_MS * scale) / 1000,
+                ease: [0.65, 0, 0.35, 1],
+              }}
               className={`relative ${frames[frameIndex].className}`}
             >
               <Image
@@ -72,13 +102,17 @@ export default function Preloader() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="h-px w-48 overflow-hidden bg-white/15" aria-hidden="true">
-            <motion.div
-              className="h-full bg-red"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: (TOTAL_MS * scale) / 1000, ease: "linear" }}
-            />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-4 left-5 flex items-end leading-[0.8] text-white/15 sm:bottom-6 sm:left-10 lg:left-16"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            <span className="text-[clamp(7rem,26vw,22rem)] font-bold tracking-tighter tabular-nums">
+              {percent}
+            </span>
+            <span className="mb-2 text-[clamp(1.5rem,5vw,4rem)] font-bold sm:mb-4">
+              %
+            </span>
           </div>
         </motion.div>
       )}

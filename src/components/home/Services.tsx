@@ -1,3 +1,4 @@
+import Stars from "@/components/motion/Stars";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceRow from "@/components/ui/ServiceRow";
@@ -5,7 +6,11 @@ import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="services" className="theme-dark py-24 sm:py-28 lg:py-32">
+    <section
+      id="services"
+      className="theme-dark relative isolate overflow-hidden py-24 sm:py-28 lg:py-32"
+    >
+      <Stars />
       <Container>
         <SectionHeading
           label="Services"
@@ -16,7 +21,12 @@ export default function Services() {
 
         <div className="mt-14">
           {services.map((service, i) => (
-            <ServiceRow key={service.slug} service={service} href={`/services#${service.slug}`} index={i} />
+            <ServiceRow
+              key={service.slug}
+              service={service}
+              href={`/services#${service.slug}`}
+              index={i}
+            />
           ))}
         </div>
       </Container>

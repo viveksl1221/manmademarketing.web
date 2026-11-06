@@ -2,6 +2,7 @@
 
 import useReducedMotionSafe from "@/components/motion/useReducedMotionSafe";
 import { useState } from "react";
+import ShinyText from "@/components/motion/ShinyText";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,7 +10,13 @@ import { Project } from "@/data/projects";
 
 type View = "grid" | "list";
 
-function GridView({ projects, reduceMotion }: { projects: Project[]; reduceMotion: boolean }) {
+function GridView({
+  projects,
+  reduceMotion,
+}: {
+  projects: Project[];
+  reduceMotion: boolean;
+}) {
   return (
     <div>
       {projects.map((project, i) => (
@@ -38,8 +45,12 @@ function GridView({ projects, reduceMotion }: { projects: Project[]; reduceMotio
             </div>
             <div className="lg:col-span-7">
               <p className="text-label text-red">{project.category}</p>
-              <h2 className="text-h2 mt-4 text-white">{project.client}</h2>
-              <p className="text-body-lg mt-6 max-w-xl text-muted">{project.description}</p>
+              <h2 className="text-h2 mt-4 text-white">
+                <ShinyText>{project.client}</ShinyText>
+              </h2>
+              <p className="text-body-lg mt-6 max-w-xl text-muted">
+                {project.description}
+              </p>
               <ul className="mt-6 flex flex-wrap gap-3">
                 {project.services.map((service) => (
                   <li
@@ -58,7 +69,13 @@ function GridView({ projects, reduceMotion }: { projects: Project[]; reduceMotio
   );
 }
 
-function ListView({ projects, reduceMotion }: { projects: Project[]; reduceMotion: boolean }) {
+function ListView({
+  projects,
+  reduceMotion,
+}: {
+  projects: Project[];
+  reduceMotion: boolean;
+}) {
   return (
     <div className="border-t border-border">
       {projects.map((project, i) => (
@@ -66,14 +83,20 @@ function ListView({ projects, reduceMotion }: { projects: Project[]; reduceMotio
           key={project.slug}
           initial={reduceMotion ? undefined : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
+          transition={{
+            duration: 0.5,
+            ease: [0.16, 1, 0.3, 1],
+            delay: i * 0.08,
+          }}
         >
           <Link
             href={`/work#${project.slug}`}
             data-cursor="hover"
             className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-border py-7 transition-colors duration-200 hover:bg-white/5 sm:gap-10 sm:py-8"
           >
-            <span className="text-label text-red">{String(i + 1).padStart(2, "0")}</span>
+            <span className="text-label text-red">
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <div>
               <h3 className="text-h3 text-white">{project.client}</h3>
               <p className="mt-1.5 text-sm text-muted sm:text-base">
@@ -109,7 +132,11 @@ export default function WorkViewToggle({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      <div className="flex items-center gap-2" role="tablist" aria-label="Work view">
+      <div
+        className="flex items-center gap-2"
+        role="tablist"
+        aria-label="Work view"
+      >
         {(["grid", "list"] as View[]).map((option) => (
           <button
             key={option}

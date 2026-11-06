@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --shiny-base: #e2e2e2;
+  --shiny-hi: #ffffff;
   --color-red: #ff4a4a;
   --color-red-dark: #e23c3c;
   --color-red-10: rgba(255, 74, 74, 0.1);
@@ -45,11 +47,13 @@ body {
 /* Section themes: remap the palette inside a section so every component
    (text, borders, buttons) adapts. Default page theme is dark. */
 .theme-dark {
-  background: var(--color-ink);
+  background: #000000;
   color: var(--color-white);
 }
 
 .theme-light {
+  --shiny-base: #141414;
+  --shiny-hi: #8f8f8f;
   --color-ink: #ffffff;
   --color-white: #141414;
   --color-mist: #f4f1ee;
@@ -61,6 +65,8 @@ body {
 }
 
 .theme-red {
+  --shiny-base: #ffe3e3;
+  --shiny-hi: #ffffff;
   --color-ink: #ff4a4a;
   --color-white: #ffffff;
   --color-mist: #e23c3c;
@@ -181,4 +187,65 @@ h4 {
   .animate-marquee {
     animation: none;
   }
+}
+
+/* Shiny text: a highlight band sweeping across the glyphs.
+   The sweep position is one animated custom property, so every line of a
+   title (grouped by .shiny-group) moves together in perfect sync. */
+@property --shiny-x {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 150%;
+}
+
+@keyframes shiny-x {
+  from {
+    --shiny-x: 150%;
+  }
+  to {
+    --shiny-x: -50%;
+  }
+}
+
+.shiny-group,
+.shiny-text:not(.shiny-grouped) {
+  animation: shiny-x var(--shiny-speed, 3s) linear infinite;
+}
+
+.shiny-text {
+  display: inline-block;
+  color: transparent !important;
+  background-image: linear-gradient(
+    110deg,
+    var(--shiny-base) 0%,
+    var(--shiny-base) calc(50% - var(--shiny-w, 20) * 1%),
+    var(--shiny-hi) calc(50% - var(--shiny-plateau, 4) * 1%),
+    var(--shiny-hi) calc(50% + var(--shiny-plateau, 4) * 1%),
+    var(--shiny-base) calc(50% + var(--shiny-w, 20) * 1%),
+    var(--shiny-base) 100%
+  );
+  background-size: 250% 100%;
+  background-position: var(--shiny-x) 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.shiny-text.shiny-hover:not(:hover) {
+  animation: none;
+  --shiny-x: 150%;
+}
+
+/* Accent (red) title lines keep their red and only glint a lighter red. */
+.shiny-text.shiny-accent {
+  --shiny-base: var(--color-red);
+  --shiny-hi: #ff8f8a;
+}
+
+/* On red sections the title stays plain white: a shine there just looks muddy. */
+.theme-red .shiny-text:not(.shiny-accent) {
+  animation: none;
+  background-image: none;
+  color: var(--color-white) !important;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
 }

@@ -11,7 +11,10 @@ export default function Process() {
   const reduceMotion = useReducedMotionSafe();
 
   return (
-    <section id="process" className="theme-light overflow-hidden py-24 sm:py-28 lg:py-32">
+    <section
+      id="process"
+      className="theme-light overflow-hidden py-24 sm:py-28 lg:py-32"
+    >
       <Container>
         <SectionHeading
           label="How We Work"
@@ -19,10 +22,14 @@ export default function Process() {
           title={"A clear process, from first\nconversation to live results."}
         />
 
-        <ScrollSlide from={-45} to={5} className="relative left-1/2 mt-14 w-screen -translate-x-1/2">
+        <ScrollSlide
+          from={-45}
+          to={5}
+          className="relative left-1/2 mt-14 w-screen -translate-x-1/2"
+        >
           <p
             aria-hidden="true"
-            className="text-display whitespace-nowrap text-transparent [-webkit-text-stroke:1.5px_var(--color-red)]"
+            className="text-display whitespace-nowrap text-red"
           >
             Strategy — Creativity — Performance — Growth — Strategy
           </p>
@@ -35,12 +42,18 @@ export default function Process() {
               initial={reduceMotion ? undefined : { opacity: 0, y: 24 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+                delay: i * 0.08,
+              }}
               className="border-t-2 border-white/20 pt-6"
             >
               <span className="text-label text-red">{step.number}</span>
               <h3 className="text-h3 mt-3 text-white">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{step.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {step.description}
+              </p>
             </motion.li>
           ))}
         </ol>

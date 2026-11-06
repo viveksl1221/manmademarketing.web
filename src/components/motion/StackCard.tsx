@@ -41,7 +41,9 @@ export default function StackCard({
       ref={ref}
       style={{ zIndex: index }}
       className={`relative ${reduceMotion ? "" : "sticky"} ${
-        rounded ? "-mt-8 rounded-t-[2rem] shadow-[0_-24px_60px_rgba(0,0,0,0.35)] sm:-mt-12 sm:rounded-t-[3rem]" : ""
+        rounded
+          ? "-mt-8 rounded-t-[2rem] shadow-[0_-24px_60px_rgba(0,0,0,0.35)] sm:-mt-12 sm:rounded-t-[3rem]"
+          : ""
       } overflow-hidden`}
     >
       {children}

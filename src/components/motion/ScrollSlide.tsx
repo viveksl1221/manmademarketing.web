@@ -47,13 +47,21 @@ export default function ScrollSlide({
     return () => window.removeEventListener("resize", measure);
   }, [fit]);
 
-  const fitX = useTransform(scrollYProgress, [0, 1], reverse ? [-distance, 0] : [0, -distance]);
+  const fitX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reverse ? [-distance, 0] : [0, -distance],
+  );
   const vwX = useTransform(scrollYProgress, [0, 1], [`${from}vw`, `${to}vw`]);
   const x = fit ? fitX : vwX;
 
   return (
     <div ref={wrapRef} className={`overflow-hidden ${className}`}>
-      <motion.div ref={trackRef} style={reduceMotion ? undefined : { x }} className="w-max">
+      <motion.div
+        ref={trackRef}
+        style={reduceMotion ? undefined : { x }}
+        className="w-max"
+      >
         {children}
       </motion.div>
     </div>

@@ -1,3 +1,5 @@
+import ShinyText from "@/components/motion/ShinyText";
+import Stars from "@/components/motion/Stars";
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -7,7 +9,8 @@ import { brand } from "@/data/brand";
 
 export const metadata: Metadata = {
   title: "About | Man Made Marketing",
-  description: "A strategy-driven marketing agency partnering with ambitious brands to build clarity, momentum, and measurable growth.",
+  description:
+    "A strategy-driven marketing agency partnering with ambitious brands to build clarity, momentum, and measurable growth.",
 };
 
 export default function AboutPage() {
@@ -36,12 +39,18 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="theme-dark py-16 sm:py-20">
+      <section className="theme-dark relative isolate overflow-hidden py-16 sm:py-20">
+        <Stars />
         <Container>
           <p className="text-label text-muted">Core Values</p>
           <ul className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-ink sm:grid-cols-2 lg:grid-cols-4">
             {brand.coreValues.map((value, i) => (
-              <Reveal key={value} as="li" delay={i * 0.06} className="bg-white p-6">
+              <Reveal
+                key={value}
+                as="li"
+                delay={i * 0.06}
+                className="bg-white p-6"
+              >
                 <span className="text-h3 text-ink">{value}</span>
               </Reveal>
             ))}
@@ -68,10 +77,17 @@ export default function AboutPage() {
       <section className="theme-red py-20 sm:py-24">
         <Container className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <Reveal>
-            <h2 className="text-h2 max-w-xl text-white">Want to partner with us?</h2>
+            <h2 className="text-h2 max-w-xl text-white">
+              <ShinyText>Want to partner with us?</ShinyText>
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <Button href="/contact" variant="primary" className="shrink-0" magnetic>
+            <Button
+              href="/contact"
+              variant="primary"
+              className="shrink-0"
+              magnetic
+            >
               Start a Project
             </Button>
           </Reveal>

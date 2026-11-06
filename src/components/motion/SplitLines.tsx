@@ -2,6 +2,7 @@
 
 import useReducedMotionSafe from "@/components/motion/useReducedMotionSafe";
 import { motion } from "framer-motion";
+import ShinyText from "@/components/motion/ShinyText";
 
 type Line = string | { text: string; className?: string };
 
@@ -55,18 +56,21 @@ export default function SplitLines({
   }
 
   return (
-    <span className={className}>
+    <span className={`shiny-group ${className ?? ""}`}>
       {lines.map((line, i) => (
         <motion.span
           key={i}
-          className="block overflow-hidden py-[0.05em]"
+          className="-my-[0.07em] block overflow-hidden py-[0.12em]"
           initial="hidden"
           {...(trigger === "view"
-            ? { whileInView: "visible", viewport: { once: true, margin: "0px 0px -10% 0px" } }
+            ? {
+                whileInView: "visible",
+                viewport: { once: true, margin: "0px 0px -10% 0px" },
+              }
             : { animate: "visible" })}
         >
           <motion.span
-            className={`block ${lineClass(line, lineClassName)}`}
+            className="block"
             variants={lineVariants}
             transition={{
               duration: 0.9,
@@ -74,7 +78,15 @@ export default function SplitLines({
               delay: delay + i * stagger,
             }}
           >
-            {lineText(line)}
+            <ShinyText
+              text={lineText(line)}
+              grouped
+              className={`${lineClass(line, lineClassName)} ${
+                lineClass(line, lineClassName).includes("text-red")
+                  ? "shiny-accent"
+                  : ""
+              }`}
+            />
           </motion.span>
         </motion.span>
       ))}
