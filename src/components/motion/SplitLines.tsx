@@ -60,7 +60,11 @@ export default function SplitLines({
       {lines.map((line, i) => (
         <motion.span
           key={i}
-          className="-mb-[0.3em] -mt-[0.12em] block overflow-hidden pb-[0.3em] pt-[0.12em]"
+          className="block overflow-hidden"
+          style={{
+            paddingBlock: "0.12em 0.3em",
+            marginBlock: "-0.12em -0.3em",
+          }}
           initial="hidden"
           {...(trigger === "view"
             ? {

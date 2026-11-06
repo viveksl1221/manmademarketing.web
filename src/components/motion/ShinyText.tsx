@@ -34,6 +34,9 @@ export default function ShinyText({
   const w = Math.max(2, shineWidth) / 2;
   const plateau = w * (1 - Math.min(1, Math.max(0, softness)));
   const style = {
+    // Room for descenders: the text clip stops at the box edge, so pad it and pull the layout back.
+    paddingBlock: "0.1em 0.25em",
+    marginBlock: "-0.1em -0.25em",
     "--shiny-w": `${w}`,
     "--shiny-plateau": `${plateau}`,
     "--shiny-speed": `${speed}s`,
