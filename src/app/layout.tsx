@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/motion/CustomCursor";
 import Preloader from "@/components/motion/Preloader";
 import "./globals.css";
 
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <Preloader />
-        <CustomCursor />
         <Header />
         <main id="main" className="flex-1">
           {children}

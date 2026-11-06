@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="services" className="border-t border-border bg-mist py-24 sm:py-28 lg:py-32">
+    <section id="services" className="theme-dark border-t border-border py-24 sm:py-28 lg:py-32">
       <Container>
         <SectionHeading
           label="Services"

@@ -41,20 +41,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.has-fine-cursor {
-  cursor: none;
+
+/* Section themes: remap the palette inside a section so every component
+   (text, borders, buttons) adapts. Default page theme is dark. */
+.theme-dark {
+  background: var(--color-ink);
+  color: var(--color-white);
 }
 
-body.has-fine-cursor a,
-body.has-fine-cursor button,
-body.has-fine-cursor [role="button"] {
-  cursor: none;
+.theme-light {
+  --color-ink: #ffffff;
+  --color-white: #141414;
+  --color-mist: #f4f1ee;
+  --color-muted: #6b6b6b;
+  --color-border: rgba(20, 20, 20, 0.12);
+  --color-border-dark: rgba(20, 20, 20, 0.22);
+  background: var(--color-ink);
+  color: var(--color-white);
 }
 
-body.has-fine-cursor input,
-body.has-fine-cursor textarea,
-body.has-fine-cursor select {
-  cursor: auto;
+.theme-red {
+  --color-ink: #ff4a4a;
+  --color-white: #ffffff;
+  --color-mist: #e23c3c;
+  --color-muted: rgba(255, 255, 255, 0.85);
+  --color-red: #141414;
+  --color-red-dark: #000000;
+  --color-red-10: rgba(20, 20, 20, 0.12);
+  --color-border: rgba(255, 255, 255, 0.3);
+  --color-border-dark: rgba(255, 255, 255, 0.5);
+  background: var(--color-ink);
+  color: var(--color-white);
 }
 
 h1,

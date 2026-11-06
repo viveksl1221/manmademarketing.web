@@ -5,11 +5,7 @@ import Reveal from "@/components/motion/Reveal";
 
 export default function Manifesto() {
   return (
-    <section className="relative overflow-hidden bg-mist py-24 sm:py-32 lg:py-40">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border-[56px] border-red/80 sm:h-[34rem] sm:w-[34rem] sm:border-[72px] lg:-right-40"
-      />
+    <section className="theme-red relative overflow-hidden py-24 sm:py-32 lg:py-40">
       <Container className="relative">
         <SectionLabel number="04">Our Philosophy</SectionLabel>
         <h2 className="text-display mt-8 max-w-3xl text-white">

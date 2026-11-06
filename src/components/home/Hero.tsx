@@ -18,17 +18,8 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const ringY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 160]);
-  const ringRotate = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 50]);
-
   return (
     <section ref={sectionRef} className="relative overflow-hidden border-b border-white/10">
-      <motion.div
-        aria-hidden="true"
-        style={{ y: ringY, rotate: ringRotate }}
-        className="pointer-events-none absolute -right-32 -top-32 h-[26rem] w-[26rem] rounded-full border-[48px] border-red/20 opacity-80 sm:h-[36rem] sm:w-[36rem] sm:border-[64px] lg:-right-40 lg:-top-40"
-      />
-
       <Container className="relative pb-20 pt-16 sm:pt-20 lg:pb-28 lg:pt-28">
         <motion.p
           initial={{ opacity: 0, y: 10 }}

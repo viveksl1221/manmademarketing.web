@@ -10,7 +10,7 @@ export default function Process() {
   const reduceMotion = useReducedMotionSafe();
 
   return (
-    <section id="process" className="py-24 sm:py-28 lg:py-32">
+    <section id="process" className="theme-light py-24 sm:py-28 lg:py-32">
       <Container>
         <SectionHeading
           label="How We Work"

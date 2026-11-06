@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="py-20 sm:py-24 lg:py-28">
+    <section className="theme-light py-20 sm:py-24 lg:py-28">
       <Container className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <SectionHeading
