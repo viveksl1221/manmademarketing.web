@@ -1,8 +1,6 @@
 "use client";
 
-import useReducedMotionSafe from "@/components/motion/useReducedMotionSafe";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Marquee from "@/components/ui/Marquee";
@@ -11,15 +9,8 @@ import SplitLines from "@/components/motion/SplitLines";
 const marqueeItems = ["Strategy", "Branding", "Web Design", "Performance", "SEO", "Content"];
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const reduceMotion = useReducedMotionSafe();
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
   return (
-    <section ref={sectionRef} className="relative overflow-hidden border-b border-white/10">
+    <section className="relative overflow-hidden border-b border-white/10">
       <Container className="relative pb-20 pt-16 sm:pt-20 lg:pb-28 lg:pt-28">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
