@@ -4,13 +4,12 @@ import ClientsMarquee from "@/components/home/ClientsMarquee";
 import RegionsMarquee from "@/components/home/RegionsMarquee";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
-import Manifesto from "@/components/home/Manifesto";
+import Philosophy from "@/components/home/Philosophy";
 import Testimonials from "@/components/home/Testimonials";
 import Faq from "@/components/home/Faq";
-import ContactCTA from "@/components/home/ContactCTA";
 import StackCard from "@/components/motion/StackCard";
 
-const stacked = new Set([Services, Manifesto, ContactCTA]);
+const stacked = new Set([Services]);
 const sections = [
   Hero,
   FeaturedSlider,
@@ -19,9 +18,8 @@ const sections = [
   Services,
   Process,
   Testimonials,
-  Manifesto,
+  Philosophy,
   Faq,
-  ContactCTA,
 ];
 
 export default function Home() {
@@ -37,7 +35,7 @@ export default function Home() {
           <div key={i} className="relative" style={{ zIndex: layer }}>
             <Section />
           </div>
-        )
+        ),
       )}
     </>
   );

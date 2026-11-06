@@ -28,7 +28,11 @@ export default function Header() {
         className={`z-40 text-white ${pathname === "/" ? "absolute inset-x-0 top-0" : "relative bg-black"}`}
       >
         <Container className="flex h-24 items-center justify-between">
-          <Link href="/" className="relative h-9 w-[150px] shrink-0 sm:h-10 sm:w-[170px]" aria-label="Man Made Marketing home">
+          <Link
+            href="/"
+            className="relative h-9 w-[150px] shrink-0 sm:h-10 sm:w-[170px]"
+            aria-label="Man Made Marketing home"
+          >
             <Image
               src="/logo/wordmark-on-dark.svg"
               alt="Man Made Marketing"
@@ -43,22 +47,27 @@ export default function Header() {
         </Container>
       </motion.header>
 
-      <div className="pointer-events-none fixed inset-x-0 top-6 z-50 mix-blend-difference">
+      <div className="pointer-events-none fixed inset-x-0 top-5 z-50">
         <Container className="flex justify-end">
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-expanded={menuOpen}
             aria-label="Open menu"
-            className="group pointer-events-auto flex h-12 w-14 flex-col items-end justify-center gap-2"
+            className="group pointer-events-auto flex h-14 w-14 flex-col items-center justify-center gap-2 rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.08),0_6px_20px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-105"
           >
-            <span className="block h-[1.5px] w-12 bg-white transition-all duration-300 group-hover:w-8" />
-            <span className="block h-[1.5px] w-12 bg-white transition-all duration-300 group-hover:w-12" />
+            <span className="block h-[1.5px] w-6 bg-[#141414] transition-all duration-300 group-hover:w-4" />
+            <span className="block h-[1.5px] w-6 bg-[#141414] transition-all duration-300" />
           </button>
         </Container>
       </div>
 
-      <NavOverlay open={menuOpen} onClose={() => setMenuOpen(false)} links={navLinks} pathname={pathname} />
+      <NavOverlay
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        links={navLinks}
+        pathname={pathname}
+      />
     </>
   );
 }
