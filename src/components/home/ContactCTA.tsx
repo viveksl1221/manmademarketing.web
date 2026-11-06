@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 
 export default function ContactCTA() {
   return (
-    <section id="contact-cta" className="theme-light border-t border-border py-24 sm:py-28 lg:py-32">
+    <section id="contact-cta" className="theme-light py-24 sm:py-28 lg:py-32">
       <Container className="flex flex-col items-start gap-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
           <SectionLabel>Let&rsquo;s Talk</SectionLabel>

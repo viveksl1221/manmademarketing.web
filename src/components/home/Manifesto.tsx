@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/motion/SplitLines";
+import ScrollSlide from "@/components/motion/ScrollSlide";
 import Reveal from "@/components/motion/Reveal";
 
 export default function Manifesto() {
@@ -19,6 +20,15 @@ export default function Manifesto() {
           </p>
         </Reveal>
       </Container>
+
+      <ScrollSlide from={10} to={-60} className="mt-16 sm:mt-24">
+        <p
+          aria-hidden="true"
+          className="whitespace-nowrap text-[clamp(5rem,16vw,14rem)] font-bold leading-none tracking-tighter text-white/15"
+        >
+          Intent over noise — Intent over noise
+        </p>
+      </ScrollSlide>
     </section>
   );
 }

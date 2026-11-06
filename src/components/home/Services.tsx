@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="services" className="theme-dark border-t border-border py-24 sm:py-28 lg:py-32">
+    <section id="services" className="theme-dark py-24 sm:py-28 lg:py-32">
       <Container>
         <SectionHeading
           label="Services"
@@ -14,7 +14,7 @@ export default function Services() {
           description="Each service is built to work on its own or as part of a larger partnership — connected by the same strategic foundation."
         />
 
-        <div className="mt-14 border-t border-border">
+        <div className="mt-14">
           {services.map((service, i) => (
             <ServiceRow key={service.slug} service={service} href={`/services#${service.slug}`} index={i} />
           ))}

@@ -10,22 +10,13 @@ const marqueeItems = ["Strategy", "Branding", "Web Design", "Performance", "SEO"
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10">
+    <section className="relative overflow-hidden">
       <Container className="relative pb-20 pt-16 sm:pt-20 lg:pb-28 lg:pt-28">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-label text-red"
-        >
-          Man Made Marketing — Marketing Agency
-        </motion.p>
-
-        <h1 className="text-display mt-6 max-w-3xl text-white">
+        <h1 className="text-display max-w-4xl text-white">
           <SplitLines
             trigger="mount"
             delay={0.1}
-            lines={["Don't just get seen.", { text: "Get remembered.", className: "text-red" }]}
+            lines={["We build brands, websites", { text: "and marketing that grow.", className: "text-red" }]}
           />
         </h1>
 
@@ -35,8 +26,8 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           className="text-body-lg mt-8 max-w-lg text-muted"
         >
-          Strategy, creativity and performance working together to help ambitious brands build
-          momentum and grow.
+          Branding, web design, performance marketing, SEO and content, all under one roof, for
+          ambitious brands across the Gulf.
         </motion.p>
 
         <motion.div
@@ -54,7 +45,7 @@ export default function Hero() {
         </motion.div>
       </Container>
 
-      <div className="relative border-t border-white/10 bg-mist py-4">
+      <div className="relative bg-mist py-4">
         <Marquee items={marqueeItems} variant="label" />
       </div>
     </section>

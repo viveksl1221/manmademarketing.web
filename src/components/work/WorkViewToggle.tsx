@@ -20,7 +20,7 @@ function GridView({ projects, reduceMotion }: { projects: Project[]; reduceMotio
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="scroll-mt-24 border-b border-border py-16 last:border-b-0 sm:py-20"
+          className="scroll-mt-24 py-16 sm:py-20"
         >
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <div

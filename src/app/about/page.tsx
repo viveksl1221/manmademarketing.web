@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="theme-red border-b border-border py-20 sm:py-24 lg:py-28">
+      <section className="theme-red py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             label="About"
@@ -23,7 +23,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="theme-light border-b border-border py-16 sm:py-20">
+      <section className="theme-light py-16 sm:py-20">
         <Container className="grid grid-cols-1 gap-10 sm:grid-cols-2">
           <Reveal>
             <p className="text-label text-red">Mission</p>
@@ -36,7 +36,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="theme-dark border-b border-border py-16 sm:py-20">
+      <section className="theme-dark py-16 sm:py-20">
         <Container>
           <p className="text-label text-muted">Core Values</p>
           <ul className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-ink sm:grid-cols-2 lg:grid-cols-4">
@@ -65,7 +65,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="theme-red border-t border-border py-20 sm:py-24">
+      <section className="theme-red py-20 sm:py-24">
         <Container className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <Reveal>
             <h2 className="text-h2 max-w-xl text-white">Want to partner with us?</h2>

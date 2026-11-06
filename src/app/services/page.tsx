@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="theme-red border-b border-border py-20 sm:py-24 lg:py-28">
+      <section className="theme-red py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             label="Services"
@@ -28,7 +28,7 @@ export default function ServicesPage() {
         <section
           key={service.slug}
           id={service.slug}
-          className={`scroll-mt-24 border-b border-border py-16 sm:py-20 ${i % 2 === 0 ? "theme-light" : "theme-dark"}`}
+          className={`scroll-mt-24 py-16 sm:py-20 ${i % 2 === 0 ? "theme-light" : "theme-dark"}`}
         >
           <Container className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
             <Reveal className="lg:col-span-4">

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <section className="theme-red border-b border-border py-20 sm:py-24 lg:py-28">
+      <section className="theme-red py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             label="Selected Work"
@@ -30,7 +30,7 @@ export default function WorkPage() {
         </Container>
       </section>
 
-      <section className="theme-light border-t border-border py-20 sm:py-24">
+      <section className="theme-light py-20 sm:py-24">
         <Container className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <Reveal>
             <h2 className="text-h2 max-w-xl text-white">Want to see the brand&rsquo;s name here next?</h2>

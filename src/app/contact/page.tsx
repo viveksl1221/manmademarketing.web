@@ -21,7 +21,7 @@ export default function ContactPage() {
             description="Tell us where the brand is today and where it needs to go. We'll follow up with next steps."
           />
 
-          <Reveal delay={0.2} className="mt-12 flex flex-col gap-5 border-t border-border pt-8">
+          <Reveal delay={0.2} className="mt-12 flex flex-col gap-5 pt-8">
             <div>
               <p className="text-label text-muted">Email</p>
               <a
