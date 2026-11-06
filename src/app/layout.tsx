@@ -8,16 +8,16 @@ import "./globals.css";
 
 // General Sans isn't on Google Fonts; Plus Jakarta Sans is the closest
 // geometric sans available there and keeps builds dependency-free.
+// Both are variable fonts, so no `weight` is specified — the full weight
+// range loads in one file and the site's own font-weight CSS picks from it.
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
