@@ -21,21 +21,30 @@ const fromTopLeft = { originX: 0, originY: 0, transformBox: "fill-box" } as cons
 
 /* ---------- Scene graphics (400×400, driven by local progress p: 0→1) ---------- */
 
+// The MMM logo mark (path from public/logo, 114 × 175 units).
+const MARK_D =
+  "M0 175.42V140.99H55.58C59.26 140.99 62.77 140.76 66.15 140.31C69.52 139.86 72.54 138.9 75.22 137.44C77.9 135.98 80.04 133.89 81.66 131.12C83.27 128.37 84.07 124.78 84.07 120.32C84.07 116.34 83.16 113.32 81.32 111.25C79.48 109.18 77.27 107.68 74.66 106.77C72.05 105.86 69.29 105.31 66.38 105.16C63.47 105.01 61.01 104.93 59.03 104.93H0V70.5H59.01C62.38 70.5 65.58 70.16 68.65 69.45C71.72 68.77 74.38 67.61 76.68 66.02C78.98 64.41 80.77 62.27 82.07 59.58C83.37 56.89 84.03 53.58 84.03 49.6C84.03 43.94 82.14 40 78.41 37.78C74.66 35.57 70.18 34.46 64.97 34.46H0V0H65.9C72.63 0 78.95 0.66 84.84 1.96C90.73 3.26 95.87 5.39 100.24 8.4C104.61 11.4 108.04 15.45 110.56 20.57C113.08 25.71 114.36 32.01 114.36 39.51C114.36 47.76 112.84 54.75 109.77 60.41C106.7 66.07 101.58 70.89 94.37 74.87C101.26 77.94 106.31 82.49 109.51 88.54C112.72 94.59 114.33 101.52 114.33 109.32C114.33 113.46 113.78 117.28 112.72 120.8C111.65 124.32 110.26 127.46 108.58 130.21C106.9 132.96 104.99 135.35 102.85 137.33C100.71 139.33 98.55 140.85 96.41 141.92V142.37H111.55V175.43H0V175.41V175.42Z";
+
 function BrandGraphic({ p }: P) {
   const ring1 = useDraw(p, 0, 0.35);
   const ring2 = useDraw(p, 0.1, 0.45);
-  const mark = useDraw(p, 0.3, 0.8);
-  const spin = useTransform(p, [0, 1], [0, 140]);
-  const dot = useDraw(p, 0.7, 0.9);
+  const outline = useDraw(p, 0.2, 0.65);
+  const fill = useDraw(p, 0.6, 0.85);
   return (
     <svg viewBox="0 0 400 400" fill="none" className="h-full w-full" aria-hidden="true">
-      <motion.circle cx="200" cy="200" r="170" stroke="white" strokeOpacity="0.35" strokeWidth="2" style={{ pathLength: ring1 }} />
-      <motion.circle cx="200" cy="200" r="120" stroke="white" strokeOpacity="0.6" strokeWidth="2" style={{ pathLength: ring2 }} />
-      <motion.path d="M135 280V125L200 215L265 125V280" stroke="#ff4a4a" strokeWidth="22" strokeLinecap="round" strokeLinejoin="round" style={{ pathLength: mark }} />
-      <motion.g style={{ rotate: spin, originX: "200px", originY: "200px", opacity: dot }}>
-        <circle cx="200" cy="30" r="9" fill="#ff4a4a" />
-        <circle cx="370" cy="200" r="5" fill="white" />
-      </motion.g>
+      {/* Rings start drawing from 12 o'clock */}
+      <motion.circle cx="200" cy="200" r="170" transform="rotate(-90 200 200)" stroke="white" strokeOpacity="0.4" strokeWidth="2" style={{ pathLength: ring1 }} />
+      <motion.circle cx="200" cy="200" r="120" transform="rotate(-90 200 200)" stroke="white" strokeOpacity="0.7" strokeWidth="2" style={{ pathLength: ring2 }} />
+      {/* Logo mark: outline draws first, then the solid fill floods in */}
+      <motion.path
+        d={MARK_D}
+        transform="translate(140 108) scale(1.05)"
+        stroke="#ff4a4a"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        fill="#ff4a4a"
+        style={{ pathLength: outline, fillOpacity: fill }}
+      />
     </svg>
   );
 }
