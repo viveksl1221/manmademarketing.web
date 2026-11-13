@@ -44,7 +44,7 @@ function validate(values: FormState): Errors {
 }
 
 const fieldClasses =
-  "w-full rounded-lg border bg-white/5 px-4 py-3.5 text-sm text-white placeholder:text-white/35 transition-colors focus:outline-none focus:ring-2 focus:ring-red/40";
+  "w-full rounded-lg border bg-white/5 px-4 py-3.5 text-base text-white sm:text-sm placeholder:text-white/35 transition-colors focus:outline-none focus:ring-2 focus:ring-red/40";
 
 export default function ContactForm() {
   const [values, setValues] = useState<FormState>(initialState);

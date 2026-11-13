@@ -261,10 +261,10 @@ export default function Galaxy({
     const mouse = { tx: 0, ty: 0, x: 0, y: 0, active: false };
 
     const resize = () => {
-      const d = Math.max(
-        1,
-        Math.min(propsRef.current.dpr, window.devicePixelRatio || 1),
-      );
+      // Phones: render the starfield at 1x. The points are tiny, so the
+      // extra resolution is invisible but costs battery and frame rate.
+      const cap = window.innerWidth < 768 ? 1 : propsRef.current.dpr;
+      const d = Math.max(1, Math.min(cap, window.devicePixelRatio || 1));
       const w = Math.max(1, Math.floor(root.clientWidth * d));
       const h = Math.max(1, Math.floor(root.clientHeight * d));
       if (canvas.width !== w || canvas.height !== h) {

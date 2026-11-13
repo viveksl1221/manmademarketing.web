@@ -4,7 +4,6 @@ import useReducedMotionSafe from "@/components/motion/useReducedMotionSafe";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ScrollSlide from "@/components/motion/ScrollSlide";
 import { processSteps } from "@/data/process";
 
 export default function Process() {
@@ -13,7 +12,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="theme-light overflow-hidden py-24 sm:py-28 lg:py-32"
+      className="theme-light overflow-hidden py-20 sm:py-24 lg:py-28"
     >
       <Container>
         <SectionHeading
@@ -22,20 +21,7 @@ export default function Process() {
           title={"A clear process, from first\nconversation to live results."}
         />
 
-        <ScrollSlide
-          from={-45}
-          to={5}
-          className="relative left-1/2 mt-14 w-screen -translate-x-1/2"
-        >
-          <p
-            aria-hidden="true"
-            className="text-display whitespace-nowrap text-red"
-          >
-            Strategy — Creativity — Performance — Growth — Strategy
-          </p>
-        </ScrollSlide>
-
-        <ol className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step, i) => (
             <motion.li
               key={step.number}

@@ -42,7 +42,7 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     data-cursor="hover"
-                    className="link-underline text-sm font-medium text-white/80 hover:text-white"
+                    className="tap-area link-underline text-sm font-medium text-white/80 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
                 <Link
                   href="/contact"
                   data-cursor="hover"
-                  className="link-underline text-sm font-medium text-white/80 hover:text-white"
+                  className="tap-area link-underline text-sm font-medium text-white/80 hover:text-white"
                 >
                   Contact
                 </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
                 <a
                   href={`mailto:${contact.email}`}
                   data-cursor="hover"
-                  className="link-underline font-medium text-white/80 hover:text-white"
+                  className="tap-area link-underline font-medium text-white/80 hover:text-white"
                 >
                   {contact.email}
                 </a>
@@ -76,7 +76,7 @@ export default function Footer() {
                 <a
                   href={contact.phoneHref}
                   data-cursor="hover"
-                  className="link-underline font-medium text-white/80 hover:text-white"
+                  className="tap-area link-underline font-medium text-white/80 hover:text-white"
                 >
                   {contact.phone}
                 </a>
@@ -88,7 +88,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor="hover"
-                className="link-underline text-sm font-medium text-white/60 hover:text-white"
+                className="tap-area link-underline text-sm font-medium text-white/60 hover:text-white"
               >
                 Instagram
               </a>
@@ -97,7 +97,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor="hover"
-                className="link-underline text-sm font-medium text-white/60 hover:text-white"
+                className="tap-area link-underline text-sm font-medium text-white/60 hover:text-white"
               >
                 TikTok
               </a>

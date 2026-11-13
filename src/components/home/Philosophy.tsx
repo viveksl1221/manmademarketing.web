@@ -83,11 +83,8 @@ export default function Philosophy() {
               <span>Our Philosophy</span>
             </p>
             <h2
-              className="text-display max-w-6xl text-white"
-              style={{
-                fontSize: "clamp(3.25rem, 10vw, 10rem)",
-                lineHeight: 0.95,
-              }}
+              className="text-display phil-title max-w-6xl text-white"
+              style={{ lineHeight: 0.95 }}
             >
               Marketing built
               <br />
@@ -136,7 +133,7 @@ export default function Philosophy() {
             <p className="text-body-lg text-white/90">
               Have a project in mind?
             </p>
-            <h2 className="text-display max-w-4xl text-white">
+            <h2 className="text-display text-display-fit max-w-4xl text-white">
               Let&rsquo;s make something great together.
             </h2>
             <Link

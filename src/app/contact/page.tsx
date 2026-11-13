@@ -28,7 +28,7 @@ export default function ContactPage() {
               <a
                 href={`mailto:${contact.email}`}
                 data-cursor="hover"
-                className="text-h3 mt-1 block text-white hover:text-red"
+                className="text-h3 -mb-2 mt-0 block py-2 text-white hover:text-red"
               >
                 {contact.email}
               </a>
@@ -38,7 +38,7 @@ export default function ContactPage() {
               <a
                 href={contact.phoneHref}
                 data-cursor="hover"
-                className="text-h3 mt-1 block text-white hover:text-red"
+                className="text-h3 -mb-2 mt-0 block py-2 text-white hover:text-red"
               >
                 {contact.phone}
               </a>

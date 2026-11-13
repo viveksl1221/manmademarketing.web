@@ -389,10 +389,10 @@ const HorizonBloom = forwardRef<HorizonBloomHandle, HorizonBloomProps>(
       const staticMode = () => propsRef.current.paused || reduceMq.matches;
 
       const resize = () => {
-        const maxDpr = Math.max(
-          1,
-          Math.min(dprRef(), window.devicePixelRatio || 1),
-        );
+        // The bloom is a soft gradient, so phones can render it well below
+        // their native density without any visible loss.
+        const cap = window.innerWidth < 768 ? Math.min(dprRef(), 1.25) : dprRef();
+        const maxDpr = Math.max(1, Math.min(cap, window.devicePixelRatio || 1));
         const w = Math.max(1, Math.floor(root.clientWidth * maxDpr));
         const h = Math.max(1, Math.floor(root.clientHeight * maxDpr));
         if (canvas.width !== w || canvas.height !== h) {
