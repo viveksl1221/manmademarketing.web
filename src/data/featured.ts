@@ -15,7 +15,7 @@ export const featuredCases: FeaturedCase[] = [
   {
     client: "Sikkini",
     category: "Professional Kitchen Services",
-    href: "/work#sikkini",
+    href: "/work/sikkini",
     image: {
       src: "/work/sikkini.jpg",
       alt: "Sikkini campaign creative with the headline 'Your Kitchen. Sharper Every Day.'",
@@ -25,7 +25,7 @@ export const featuredCases: FeaturedCase[] = [
   {
     client: "My-Health",
     category: "Longevity & Wellness",
-    href: "/work#my-health",
+    href: "/work/my-health",
     image: {
       src: "/work/my-health.jpg",
       alt: "My-Health wellness campaign featuring the message 'Prevention is the most powerful medicine.'",
@@ -35,7 +35,7 @@ export const featuredCases: FeaturedCase[] = [
   {
     client: "Fika Time",
     category: "Restaurant & Café",
-    href: "/work#fika-time",
+    href: "/work/fika-time",
     image: {
       src: "/work/fika-time.jpg",
       alt: "Fika Time café social campaign featuring desserts, coffee, and the 'Freshly Baked Everyday' message",

@@ -61,6 +61,13 @@ function GridView({
                   </li>
                 ))}
               </ul>
+              <Link
+                href={`/work/${project.slug}`}
+                data-cursor="hover"
+                className="link-underline tap-area mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white"
+              >
+                Read the case study <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </motion.section>
@@ -90,7 +97,7 @@ function ListView({
           }}
         >
           <Link
-            href={`/work#${project.slug}`}
+            href={`/work/${project.slug}`}
             data-cursor="hover"
             className="group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-border py-7 transition-colors duration-200 hover:bg-white/5 sm:gap-10 sm:py-8"
           >

@@ -1,7 +1,6 @@
 import Hero from "@/components/home/Hero";
 import FeaturedSlider from "@/components/home/FeaturedSlider";
 import ServicesMotion from "@/components/home/ServicesMotion";
-import ClientsMarquee from "@/components/home/ClientsMarquee";
 import RegionsMarquee from "@/components/home/RegionsMarquee";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
@@ -16,7 +15,6 @@ const sections = [
   Hero,
   FeaturedSlider,
   ServicesMotion,
-  ClientsMarquee,
   RegionsMarquee,
   Services,
   Process,

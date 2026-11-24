@@ -12,7 +12,7 @@ export default function RegionsMarquee() {
       <Container>
         <SectionHeading
           label="Where We Work"
-          title={"Four markets.\nOne team."}
+          title={"Five markets.\nOne team."}
         />
       </Container>
 

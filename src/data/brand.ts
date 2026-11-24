@@ -17,5 +17,5 @@ export const contact = {
   tiktok: { label: "@manmademarketing", href: "https://www.tiktok.com/@manmademarketing" },
 };
 
-// Regions served, as listed on the live manmademarketing.com site.
-export const regions = ["UAE", "Saudi Arabia", "Oman", "Qatar"];
+// Regions served: the Gulf markets on the live manmademarketing.com site, plus the US.
+export const regions = ["UAE", "Saudi Arabia", "Oman", "Qatar", "United States"];
